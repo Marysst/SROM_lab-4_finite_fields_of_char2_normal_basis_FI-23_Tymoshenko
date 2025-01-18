@@ -28,7 +28,7 @@ class GF2ONBField:
             return False
         for k in range(1, p):
             if ((1 << k) - 1) % p == 0:
-                if k == 2*m or (p - 3) % 4 == 0:
+                if k == 2*m or ((p - 3) % 4 == 0 and k == m):
                     return True
         return False
 
