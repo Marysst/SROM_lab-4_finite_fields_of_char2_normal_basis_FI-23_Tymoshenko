@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 
 class GF2ONBField:
     def __init__(self, m):
