@@ -155,7 +155,7 @@ if __name__ == "__main__":
     field = GF2ONBField(m)
 
     # Тестування часу виконання
-    operation_times = benchmark_operations(field, m, 10)
+    operation_times = benchmark_operations(field, m, 5)
 
     # Вивід результатів
     print("\nСередній час виконання операцій у полі GF(2^491):")
