@@ -2,10 +2,6 @@ import sys
 
 class GF2ONBField:
     def __init__(self, m):
-        """
-        Ініціалізує поле GF(2^m) з оптимальним нормальним базисом та обчислює мультиплікативну матрицю Λ.
-        :param m: Розмірність поля (m > 0)
-        """
         self.m = m
         self.p = 2*m + 1
         if not self.is_onb(self.p, self.m):
@@ -14,7 +10,8 @@ class GF2ONBField:
         else:
             print("У цьому полі існує ОНБ")
         self.mult_matrix = self._compute_multiplicative_matrix()
-    
+
+    # Перевірка числа на простоту
     def isPrime(self, n):
         d = 2
         while d * d <= n and n % d != 0:
@@ -24,6 +21,7 @@ class GF2ONBField:
         else:
             return False
 
+    # Перевірка існування ОНБ
     def is_onb(self, p, m):
         if not self.isPrime(p):
             return False
@@ -33,11 +31,8 @@ class GF2ONBField:
                     return True
         return False
 
+    # Обчислення мультиплікативної матриці Λ для ОНБ
     def _compute_multiplicative_matrix(self):
-        """
-        Обчислює мультиплікативну матрицю Λ для ОНБ.
-        :return: Матриця Λ (m x m)
-        """
         matrix = np.zeros((self.m, self.m), dtype=int)
         for i in range(self.m):
             for j in range(self.m):
@@ -51,10 +46,8 @@ class GF2ONBField:
                     matrix[i, j] = 1
         return matrix
 
+    # Друк мультиплікативної матриці Λ
     def print_multiplicative_matrix(self):
-        """
-        Друкує обчислену мультиплікативну матрицю Λ.
-        """
         for row in self.mult_matrix:
             print(" ".join(map(str, row)))
 
